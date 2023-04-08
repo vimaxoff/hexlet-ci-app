@@ -6,12 +6,12 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Setup project
+        run: make setup
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'npm'
-      - name: Setup project
-        run: make setup
       - name: run lint
         run: make lint
       - name: run tests
